@@ -47,8 +47,7 @@ public class MainActivity extends AppCompatActivity  {
     NavigationView navView;
     @BindView(R.id.drawer)
     DrawerLayout drawer;
-  /*  @BindView(R.id.rv)
-    RecyclerView rv;*/
+
 
     private List<Fragment> fragmentList;
     private MyPagerAdapter pagerAdapter;
@@ -69,36 +68,18 @@ public class MainActivity extends AppCompatActivity  {
         toggle.setDrawerIndicatorEnabled(true);
         drawer.setDrawerListener(toggle);
         toggle.syncState();
-
+        //viewpager相关
         fragmentList = new ArrayList<Fragment>();
         fragmentList.add(new PagerOneFragment());
         fragmentList.add(new PagerTwoFragment());
         fragmentList.add(new PagerThreeFragment());
-
         tabLayout.setupWithViewPager(pager);
-
         pagerAdapter = new MyPagerAdapter(getSupportFragmentManager(),fragmentList);
-
         pager.setAdapter(pagerAdapter);
-
-
-
-      /*  MyRecyclerViewAdapter adapter = new MyRecyclerViewAdapter(this,initData());
-        rv.setAdapter(adapter);*/
-
-
-
 
     }
 
-   /* private List<String> initData() {
-        List<String> list = new ArrayList<String>();
-        for (int i = 0;i<30;i++){
-            list.add("item:"+i);
-        }
 
-        return list;
-    }*/
 
     @Override
     public boolean onPrepareOptionsMenu(Menu menu) {
